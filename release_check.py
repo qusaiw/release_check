@@ -1,4 +1,7 @@
 #!/slowfs/us01dwt2p106/char_sw_chute/tools/bin/python3
+"""
+Automatic test for released cells
+"""
 import helper as hp
 import argparse
 import os
@@ -10,7 +13,8 @@ parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter, 
 parser.add_argument('paths', nargs='+', help="path1 path2 path3 ....")
 args = parser.parse_args()
 
-if __name__ == '__main__':
+
+def main():
     out_folder = hp.create_folder('Release_check')
     main_log = open(os.path.join(out_folder, 'Main.log'), 'w+')
 
@@ -42,3 +46,6 @@ if __name__ == '__main__':
                         messages.append('Error lib is newer than db for {}'.format(lib))
                     break
 
+
+if __name__ == '__main__':
+    main()
